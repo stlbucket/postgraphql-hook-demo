@@ -21,7 +21,7 @@ async function handler (args, result) {
   mailgun
     .messages()
     .send(mailgunData, function (error, body) {
-      console.log('mailgun result', body)
+      console.log('MAILGUN RESULT', body)
     });
 }
 
