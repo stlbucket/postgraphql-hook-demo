@@ -1,10 +1,8 @@
-const api_key = process.env.MAILGUN_API_KEY;
-const domain = process.env.MAILGUN_DOMAIN;
+const apiKey = process.env.MAILGUN_API_KEY
+const domain = process.env.MAILGUN_DOMAIN
 
-const mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+const mailgun = require('mailgun-js')({apiKey: apiKey, domain: domain})
 const appendMutation = require('postgraphql-hook').appendMutation
-
-
 
 async function handler (args, result) {
   const emailInfo = result.data
@@ -21,8 +19,12 @@ async function handler (args, result) {
   mailgun
     .messages()
     .send(mailgunData, function (error, body) {
-      console.log('MAILGUN RESULT', body)
-    });
+      if (error) {
+        console.log('MAILGUN ERROR', error)
+      } else {
+        console.log('MAILGUN RESULT', body)
+      }
+    })
 }
 
 const plugin = appendMutation({

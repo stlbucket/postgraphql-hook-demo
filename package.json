@@ -11,7 +11,9 @@
     "postgraphql": "^4.0.0-alpha1.3",
     "postgraphql-hook": "^1.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "standard": "^10.0.2"
+  },
   "scripts": {
     "start": "node server.js"
   },
