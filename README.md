@@ -25,7 +25,7 @@ Copy 'example_config.js' to 'config.js' in root directory and update the followi
 npm install
 ```
 
-If you do not already have knex-migrate installed locally:
+If you do not already have knex-migrate installed globally:
 ```apple js
 npm install -g knex-migrate
 ```
